@@ -18,6 +18,8 @@ private :
 	float y = 140;
 	float width;
 	float height;
+	float velX = 0;
+	float velY = 15;
 	int playerNum;
 	bool keyUp;
 	bool keyDown;

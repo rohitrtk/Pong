@@ -17,6 +17,7 @@ static int HEIGHT = 480;
 int main() {
 
 	sf::RenderWindow window(sf::VideoMode(640, 480), "Pong");
+	window.setFramerateLimit(60);
 
 	Paddle paddle1(1);
 	Paddle paddle2(2);
@@ -54,8 +55,8 @@ int main() {
 
 		if (ball.gameOn) ball.moveloop();
 
-		ball.collide(paddle1);
-		ball.collide(paddle2);
+		ball.collide(paddle1, 1);
+		ball.collide(paddle2, 2);
 
 		window.clear();
 		window.draw(paddle1);

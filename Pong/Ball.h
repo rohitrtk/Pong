@@ -14,16 +14,17 @@ class Ball : public sf::CircleShape
 public:
 	Ball();
 	~Ball();
-	void collide(Paddle paddle);
+	void collide(Paddle paddle, int playerNum);
 	void moveloop();
 	bool gameOn = true;
 private:
 	float x = 320;
 	float y = 240;
-	float velX = 0.4;
-	float velY = 0.4;
+	float velX = 5;
+	float velY = 10;
 	const float radius = 150;
-	int setVelocity();
+	bool changeVel = true;
+	bool negativeVel;
 };
 
 #endif // !BALL_H_

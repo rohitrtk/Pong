@@ -2,7 +2,7 @@
 #include "Paddle.h"
 #include <iostream>
 
-Paddle::Paddle(int playerNum) : sf::RectangleShape(sf::Vector2f(10, 200))
+Paddle::Paddle(int playerNum) : sf::RectangleShape(sf::Vector2f(10, 50))
 {
 	this->playerNum = playerNum;
 
@@ -22,7 +22,7 @@ void Paddle::doMovement(sf::Event event)
 {
 	if (playerNum == 1)
 	{
-		if (event.key.code == sf::Keyboard::W) keyUp = true, std::cout << "asd" << std::endl;
+		if (event.key.code == sf::Keyboard::W) keyUp = true;
 		if (event.key.code == sf::Keyboard::S) keyDown = true;
 	}
 	else if (playerNum == 2)
@@ -48,11 +48,11 @@ void Paddle::stopMovement(sf::Event event)
 
 void Paddle::moveloop()
 {
-	if (keyUp == 1|| arrowUp == 1) y--, move(0, -1);
-	if (keyDown == 1| arrowDown == 1) y++, move(0, 1);
+	if (keyUp == 1|| arrowUp == 1) y -= velY, move(0, -1 * velY);
+	if (keyDown == 1 | arrowDown == 1) y += velY, move(0, velY);
 
 	if (y < 0) y = 2, setPosition(x,2);
-	else if (y + 200 > 478) y = 278, setPosition(x, 278);
+	else if (y + 50 > 478) y = 438, setPosition(x, 438);
 }
 
 float Paddle::getX()
