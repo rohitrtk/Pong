@@ -54,3 +54,13 @@ void Paddle::moveloop()
 	if (y < 0) y = 2, setPosition(x,2);
 	else if (y + 200 > 478) y = 278, setPosition(x, 278);
 }
+
+float Paddle::getX()
+{
+	return x;
+}
+
+float Paddle::getY()
+{
+	return y;
+}

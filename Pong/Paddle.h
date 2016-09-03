@@ -11,6 +11,8 @@ public:
 	void moveloop();
 	void doMovement(sf::Event event);
 	void stopMovement(sf::Event event);
+	float getX();
+	float getY();
 private :
 	float x;
 	float y = 140;

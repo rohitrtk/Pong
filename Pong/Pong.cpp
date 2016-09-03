@@ -16,8 +16,7 @@ static int HEIGHT = 480;
 
 int main() {
 
-	auto* = new sf::RenderWindow window(sf::VideoMode(640, 480), "Pong");
-	window->setVerticalSyncEnabled(true);
+	sf::RenderWindow window(sf::VideoMode(640, 480), "Pong");
 
 	Paddle paddle1(1);
 	Paddle paddle2(2);
@@ -42,7 +41,6 @@ int main() {
 			case sf::Event::KeyPressed:
 				paddle1.doMovement(event);
 				paddle2.doMovement(event);
-				ball.tempMove(event);
 				break;
 			case sf::Event::KeyReleased:
 				paddle1.stopMovement(event);
@@ -55,6 +53,9 @@ int main() {
 		paddle2.moveloop();
 
 		if (ball.gameOn) ball.moveloop();
+
+		ball.collide(paddle1);
+		ball.collide(paddle2);
 
 		window.clear();
 		window.draw(paddle1);
